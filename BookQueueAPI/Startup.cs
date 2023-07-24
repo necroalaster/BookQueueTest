@@ -1,3 +1,5 @@
+using AutoMapper;
+using BookQueue.Domain.Mappings;
 using BookQueue.Infrastructure.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,6 +33,8 @@ namespace BookQueueAPI
 
             services.AddDbContext<BookQueueContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            ConfigureAutoMapper(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +55,17 @@ namespace BookQueueAPI
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private void ConfigureAutoMapper(IServiceCollection services)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(typeof(BookProfile));
+            });
+
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
     }
 }

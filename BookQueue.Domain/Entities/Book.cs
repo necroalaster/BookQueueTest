@@ -23,7 +23,7 @@ namespace BookQueue.Domain.Entities
 
         public virtual Author Author
         {
-            get;
+            get; set;
         }
     }
 }

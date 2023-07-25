@@ -28,6 +28,7 @@ namespace BookQueue.Infrastructure.EntitiesConfiguration
                 .HasForeignKey(d => d.AuthorId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Author_Book");
+            builder.ToTable("Book");
         }
     }
 }

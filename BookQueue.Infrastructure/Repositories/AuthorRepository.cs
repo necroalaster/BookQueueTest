@@ -19,7 +19,7 @@ namespace BookQueue.Infrastructure.Repositories
 
         public Author GetByname(string name)
         {
-            return _context.Authors.Where(x => x.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase)).SingleOrDefault();
+            return _context.Authors.Where(x => x.Name == name).SingleOrDefault();
         }
 
         public void Save(Author author)

@@ -34,12 +34,16 @@ namespace BookQueue.Infrastructure.Repositories
         {
             return _context.Books
                 .OrderBy(x => x.Title)
+                .Include(b => b.Author)
                 .AsNoTracking();
         }
 
         public Book GetByID(Guid bookId)
         {
-            return _context.Books.Where(x => x.Id == bookId).SingleOrDefault();
+            return _context.Books
+                .Where(x => x.Id == bookId)
+                .Include(b => b.Author)
+                .SingleOrDefault();
         }
 
         public void Save(Book book)
@@ -50,9 +54,15 @@ namespace BookQueue.Infrastructure.Repositories
             {
                 oldBook.PublicationYear = book.PublicationYear;
                 oldBook.Title = book.Title;
+                book.ModifiedAt = DateTime.Now;
             }
             else
+            {
+                book.CreatedAt = DateTime.Now;
+                book.ModifiedAt = DateTime.Now;
+
                 _context.Books.Add(book);
+            }
 
             _context.SaveChanges();
         }

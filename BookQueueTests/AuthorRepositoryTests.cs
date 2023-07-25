@@ -34,7 +34,7 @@ namespace BookQueueTests
         {
             GenerateAuthors();
 
-            var author = _authorRepository.GetByname("erico verissímo");
+            var author = _authorRepository.GetByname("Erico Verissímo");
 
             Assert.NotNull(author);
             Assert.Equal("Erico Verissímo", author.Name);

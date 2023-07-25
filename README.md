@@ -14,3 +14,6 @@ Coisas que faltaram na implementação:
 - Validação de entradas, apenas POST tem alguma
 - Tratamento de excessões no âmbito geral.
 - Testes dos controllers.
+- Docker (nunca trabalhei)
+- Upload de imagens de capa
+- Sem linguagens funcionais (nunca trabalhei com alguma)

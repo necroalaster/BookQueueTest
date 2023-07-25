@@ -20,6 +20,8 @@ namespace BookQueue.Infrastructure.EntitiesConfiguration
             builder.Property(e => e.Name)
                 .IsRequired()
                 .HasColumnType("nvarchar(200)");
+
+            builder.ToTable("Author");
         }
     }
 }

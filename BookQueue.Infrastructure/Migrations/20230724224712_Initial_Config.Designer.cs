@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookQueue.Infrastructure.Migrations
 {
     [DbContext(typeof(BookQueueContext))]
-    [Migration("20230724135335_Initial_Config")]
+    [Migration("20230724224712_Initial_Config")]
     partial class Initial_Config
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
